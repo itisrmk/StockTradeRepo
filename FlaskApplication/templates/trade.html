@@ -3,5 +3,22 @@
 
 <h1>Trade</h1>
 
+<h3>Add a Stock</h3>
 
+<form method="post">
+    <div class="mb-3">
+      <label for="stockSymbol" class="form-label">Stock Symbol:</label>
+      <p>Only 5 Charecters correspinding to the ticker</p>
+      <input type="text" class="form-control" id="stockSymbol", name="stock_symbol", required pattern="[A-Z]{1,5}">
+    </div>
+    <div class="mb-3">
+      <label for="numberOfShares" class="form-label">Number of Shares:</label>
+      <input type="text" class="form-control" id="numberOfShares", name="number_of_shares", required pattern="{1,100}" >
+    </div>
+    <div class="mb-3">
+        <label for="purchasePrice" class="form-label">Purchase Price ($):</label>
+        <input type="text" class="form-control" id="purchasePrice", name="purchase_price", required pattern="{1,1000000}" >
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 {% endblock %}

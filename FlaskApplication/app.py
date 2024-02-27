@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import datetime
 app = Flask(__name__)
 app.debug = True
@@ -18,9 +18,13 @@ def contact():
     return render_template('contact.html', tickers=tickers)
 
 
-@app.route("/trade")
+@app.route("/trade", methods=['GET', 'POST'])
 def trade():
+    if request.method == 'POST':
+        for key, value in request.form.items():
+            print(f'{key}: {value}')
     return render_template('trade.html')
+
 
 @app.route("/portfolio")
 def portfolio():
@@ -29,26 +33,6 @@ def portfolio():
 @app.route("/tracsaction")
 def tracsaction():
     return render_template('tracsaction.html')
-
-
-
-
-
-
-
-# @app.route('/read-form', methods=['POST']) 
-# def read_form(): 
-  
-#     # Get the form data as Python ImmutableDict datatype  
-#     data = request.form 
-  
-#     ## Return the extracted information  
-#     return { 
-#         'emailId'     : data['userEmail'], 
-#         'phoneNumber' : data['userContact'], 
-#         'password'    : data['userPassword'], 
-#         'gender'      : 'Male' if data['genderMale'] else 'Female', 
-#     } 
 
 if(__name__ == "__main__"): 
     app.run(debug=True) 
