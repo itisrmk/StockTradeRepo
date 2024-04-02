@@ -3,5 +3,17 @@
 
 <h1>Transaction</h1>
 
+<!-- table stock -->
+{% for s in stock %}
+<table>
+    <tr>
+        <th>{{ s.id}}</th>
+        <th>{{ s.ticker}}</th>
+        <th>{{ s.price}}</th>
+        <th>{{ s.date}}</th>
+    </tr>
+</table>
+{% endfor %}
+
 
 {% endblock %}
